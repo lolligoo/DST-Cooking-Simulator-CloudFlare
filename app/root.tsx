@@ -111,7 +111,7 @@ export default function App() {
               className="w-20 h-8 mb-2 bg-button bg-cover bg-no-repeat text-center content-center font-medium"
               onClick={() => {
                 setShow(false);
-                navigate("?lng=en");
+                navigate("?lng=en-US");
               }}
             >
               English
@@ -120,7 +120,7 @@ export default function App() {
               className="w-20 h-8 mb-2 bg-button bg-cover bg-no-repeat text-center content-center font-medium"
               onClick={() => {
                 setShow(false);
-                navigate("?lng=zhhans");
+                navigate("?lng=zh-CN");
               }}
             >
               简体中文
