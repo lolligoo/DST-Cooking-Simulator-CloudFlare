@@ -13,7 +13,11 @@ import "./tailwind.css";
 import { useChangeLanguage } from "remix-i18next/react";
 import { useTranslation } from "react-i18next";
 import i18next from "./i18next.server";
-import { LoaderFunctionArgs, MetaFunction } from "@remix-run/cloudflare";
+import {
+  LoaderFunctionArgs,
+  MetaFunction,
+  LinksFunction,
+} from "@remix-run/cloudflare";
 import { json } from "@remix-run/cloudflare";
 import { useState } from "react";
 
@@ -36,6 +40,15 @@ export const meta: MetaFunction = () => {
     { name: "description", content: "Welcome to DST Cooking Simulator" },
   ];
 };
+export const links: LinksFunction = () => {
+  return [
+    {
+      rel: "stylesheet",
+      href: "https://chinese-fonts-cdn.deno.dev/packages/hwmct/dist/汇文明朝体/result.css",
+      crossOrigin: "anonymous",
+    },
+  ];
+};
 
 export function Layout({ children }: { children: React.ReactNode }) {
   // Get the locale from the loader
@@ -53,10 +66,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <Meta />
         <Links />
-        <link
-          rel="stylesheet"
-          href="https://chinese-fonts-cdn.deno.dev/packages/hwmct/dist/汇文明朝体/result.css"
-        />
       </head>
       <body className="flex justify-center max-h-dvh h-dvh max-w-dvw w-dvw bg-full bg-clip-border bg-bottom bg-no-repeat bg-cover backdrop-blur-lg backdrop-brightness-75">
         {children}
@@ -76,7 +85,7 @@ export default function App() {
   return (
     <div className="font-hwmct p-4 flex flex-col items-center w-full xl:w-3/5 fixed">
       <div className="w-full flex justify-between items-cente ">
-        <h1 className="font-bold content-center text-center text-sm">
+        <h1 className="font-medium content-center text-center text-base">
           <NavLink to={"/?lang=" + locale}>{t("ui.title")}</NavLink>
         </h1>
         <div className="flex">
