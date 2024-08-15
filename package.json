@@ -18,9 +18,15 @@
     "@remix-run/cloudflare": "^2.10.3",
     "@remix-run/cloudflare-pages": "^2.10.3",
     "@remix-run/react": "^2.10.3",
+    "i18next": "^23.12.3",
+    "i18next-browser-languagedetector": "^8.0.0",
+    "i18next-fs-backend": "^2.3.2",
+    "i18next-http-backend": "^2.5.2",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-i18next": "^15.0.1",
+    "remix-i18next": "^6.3.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240806.0",
