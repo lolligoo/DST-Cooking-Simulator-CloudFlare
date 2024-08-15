@@ -53,6 +53,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <Meta />
         <Links />
+        <link
+          rel="stylesheet"
+          href="https://chinese-fonts-cdn.deno.dev/packages/hwmct/dist/汇文明朝体/result.css"
+        />
       </head>
       <body className="flex justify-center max-h-dvh h-dvh max-w-dvw w-dvw bg-full bg-clip-border bg-bottom bg-no-repeat bg-cover backdrop-blur-lg backdrop-brightness-75">
         {children}
@@ -70,7 +74,7 @@ export default function App() {
   let { t } = useTranslation();
   const location = useLocation();
   return (
-    <div className="font-serif p-4 flex flex-col items-center w-full xl:w-3/5 fixed">
+    <div className="font-hwmct p-4 flex flex-col items-center w-full xl:w-3/5 fixed">
       <div className="w-full flex justify-between items-cente ">
         <h1 className="font-bold content-center text-center text-sm">
           <NavLink to={"/?lng=" + locale}>{t("ui.title")}</NavLink>
@@ -81,14 +85,18 @@ export default function App() {
               location.pathname.indexOf("cookpot") != -1 && "saturate-200"
             }`}
           >
-            <NavLink className="-ml-1" to={"cookpot?lng=" + locale}>{t("ui.cookpot")}</NavLink>
+            <NavLink className="-ml-1" to={"cookpot?lng=" + locale}>
+              {t("ui.cookpot")}
+            </NavLink>
           </h1>
           <h1
             className={`w-20 h-9 bg-button bg-cover bg-no-repeat content-center text-center font-medium hover:brightness-75 brightness-100 ${
               location.pathname.indexOf("foods") != -1 && "saturate-200"
             }`}
           >
-            <NavLink className="-ml-1" to={"foods?lng=" + locale}>{t("ui.foods")}</NavLink>
+            <NavLink className="-ml-1" to={"foods?lng=" + locale}>
+              {t("ui.foods")}
+            </NavLink>
           </h1>
         </div>
       </div>
