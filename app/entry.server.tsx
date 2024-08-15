@@ -13,7 +13,6 @@ import i18next from "./i18next.server";
 import { I18nextProvider, initReactI18next } from "react-i18next";
 import Backend from "i18next-http-backend";
 import i18n from "./i18n";
-import { resolve } from "node:path";
 
 export default async function handleRequest(
   request: Request,
@@ -36,7 +35,7 @@ export default async function handleRequest(
       ...i18n, // spread the configuration
       lng, // The locale we detected above
       ns, // The namespaces the routes about to render wants to use
-      backend: { loadPath: resolve("/locales/{{lng}}/{{ns}}.json") },
+      backend: { loadPath: "/locales/{{lng}}/{{ns}}.json" },
     });
 
   const body = await renderToReadableStream(
