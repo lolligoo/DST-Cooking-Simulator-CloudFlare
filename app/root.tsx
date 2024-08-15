@@ -77,7 +77,7 @@ export default function App() {
     <div className="font-hwmct p-4 flex flex-col items-center w-full xl:w-3/5 fixed">
       <div className="w-full flex justify-between items-cente ">
         <h1 className="font-bold content-center text-center text-sm">
-          <NavLink to={"/?lng=" + locale}>{t("ui.title")}</NavLink>
+          <NavLink to={"/?lang=" + locale}>{t("ui.title")}</NavLink>
         </h1>
         <div className="flex">
           <h1
@@ -85,7 +85,7 @@ export default function App() {
               location.pathname.indexOf("cookpot") != -1 && "saturate-200"
             }`}
           >
-            <NavLink className="-ml-1" to={"cookpot?lng=" + locale}>
+            <NavLink className="-ml-1" to={"cookpot?lang=" + locale}>
               {t("ui.cookpot")}
             </NavLink>
           </h1>
@@ -94,7 +94,7 @@ export default function App() {
               location.pathname.indexOf("foods") != -1 && "saturate-200"
             }`}
           >
-            <NavLink className="-ml-1" to={"foods?lng=" + locale}>
+            <NavLink className="-ml-1" to={"foods?lang=" + locale}>
               {t("ui.foods")}
             </NavLink>
           </h1>
@@ -111,7 +111,7 @@ export default function App() {
               className="w-20 h-8 mb-2 bg-button bg-cover bg-no-repeat text-center content-center font-medium"
               onClick={() => {
                 setShow(false);
-                navigate("?lng=en-US");
+                navigate("?lang=en-US");
               }}
             >
               English
@@ -120,7 +120,7 @@ export default function App() {
               className="w-20 h-8 mb-2 bg-button bg-cover bg-no-repeat text-center content-center font-medium"
               onClick={() => {
                 setShow(false);
-                navigate("?lng=zh-CN");
+                navigate("?lang=zh-CN");
               }}
             >
               简体中文

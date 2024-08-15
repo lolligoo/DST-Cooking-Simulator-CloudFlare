@@ -13,7 +13,7 @@ import { useTranslation } from "react-i18next";
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const url = new URL(request.url);
-  const l = url.searchParams.get("lng");
+  const l = url.searchParams.get("lang");
   const p = url.searchParams.get("pot");
   const r = url.searchParams.get("recipes");
   return json({ l, p, r });
@@ -49,12 +49,12 @@ export default function Cooking() {
   };
   // i
   useEffect(() => {
-    navigate("?lng=" + l + "&pot=" + pot + "&recipes=" + recipes.concat());
+    navigate("?lang=" + l + "&pot=" + pot + "&recipes=" + recipes.concat());
     setIngredients(searchIngredients("all"));
   }, []);
   // f
   useEffect(() => {
-    navigate("?lng=" + l + "&pot=" + pot + "&recipes=" + recipes.concat());
+    navigate("?lang=" + l + "&pot=" + pot + "&recipes=" + recipes.concat());
     setFoods(getFoods(pot, recipes));
   }, [pot, recipes]);
   return (

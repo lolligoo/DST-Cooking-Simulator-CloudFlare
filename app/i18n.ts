@@ -6,4 +6,6 @@ export default {
   fallbackLng: "en-US",
   // The default namespace of i18next is "translation", but you can customize it here
   defaultNS: "common",
+  // The default serch param key is "lng"
+  searchParamKey: "lang",
 };
