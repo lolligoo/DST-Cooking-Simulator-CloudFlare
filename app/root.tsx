@@ -44,7 +44,7 @@ export const links: LinksFunction = () => {
   return [
     {
       rel: "stylesheet",
-      href: "https://chinese-fonts-cdn.deno.dev/packages/hwmct/dist/汇文明朝体/result.css",
+      href: "/font/hwmct/result.css",
       crossOrigin: "anonymous",
     },
   ];
