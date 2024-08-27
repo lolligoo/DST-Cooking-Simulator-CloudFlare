@@ -143,6 +143,11 @@ export default function App() {
           className="w-14 h-14 rounded-full bg-book text-center content-center bg-cover"
         ></p>
       </div>
+      <div className="fixed bottom-1 text-sm">
+        <NavLink to="https://github.com/lolligoo/DST-Cooking-Simulator">
+          © {new Date().getFullYear()} Lolligoo
+        </NavLink>
+      </div>
     </div>
   );
 }

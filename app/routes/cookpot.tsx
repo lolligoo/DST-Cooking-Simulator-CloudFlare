@@ -99,7 +99,7 @@ export default function Cooking() {
                 key={r + index}
                 className="flex w-17 h-17 bg-slot bg-no-repeat bg-clip-border"
               >
-                <NavLink key={r} to={`/food/${r}` + location.search}>
+                <NavLink key={r} to={`/foods/${r}` + location.search}>
                   <img
                     src={`/images/foods/${r}.png`}
                     className="w-16 h-16 mr-4 hover:brightness-75 brightness-100 active:brightness-100"

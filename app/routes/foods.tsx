@@ -49,7 +49,7 @@ export default function Foods() {
               key={key}
               className="flex w-17 h-17 items-center justify-center bg-slot bg-no-repeat bg-clip-border hover:brightness-75 brightness-100"
             >
-              <NavLink to={`/food/${key}` + location.search}>
+              <NavLink to={`/foods/${key}` + location.search}>
                 <img
                   src={`/images/foods/${key}.png`}
                   className="w-16 h-16 mr-2"
