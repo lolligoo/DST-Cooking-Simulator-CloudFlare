@@ -1,6 +1,7 @@
-import Backend from "i18next-http-backend";
 import { RemixI18Next } from "remix-i18next/server";
 import i18n from "./i18n"; // your i18n configuration file
+import en from "../public/locales/en-US/common.json"; //server side
+import cn from "../public/locales/zh-CN/common.json"; //server side
 
 let i18next = new RemixI18Next({
   detection: {
@@ -12,14 +13,22 @@ let i18next = new RemixI18Next({
   // when translating messages server-side only
   i18next: {
     ...i18n,
-    backend: {
-      loadPath: "/locales/{{lng}}/{{ns}}.json",
+    // backend: {
+    //   loadPath: "/locales/{{lng}}/{{ns}}.json",
+    // },
+    resources: {
+      "en-US": {
+        common: en,
+      },
+      "zh-CN": {
+        common: cn,
+      },
     },
   },
   // The i18next plugins you want RemixI18next to use for `i18n.getFixedT` inside loaders and actions.
   // E.g. The Backend plugin for loading translations from the file system
   // Tip: You could pass `resources` to the `i18next` configuration and avoid a backend here
-  plugins: [Backend],
+  // plugins: [Backend],
 });
 
 export default i18next;

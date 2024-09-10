@@ -85,9 +85,11 @@ export default function App() {
   return (
     <div className="font-hwmct p-4 flex flex-col items-center w-full xl:w-3/5 fixed">
       <div className="w-full flex justify-between items-cente ">
-        <h1 className="font-medium content-center text-center text-base">
-          <NavLink to={"/?lang=" + locale}>{t("ui.title")}</NavLink>
-        </h1>
+        <NavLink to={"/?lang=" + locale}>
+          <h1 className="font-medium content-center text-center text-base">
+            {t("ui.title")}
+          </h1>
+        </NavLink>
         <div className="flex">
           <h1
             className={`w-20 h-9 bg-button bg-cover bg-no-repeat content-center text-center font-medium hover:brightness-75 brightness-100 ${
