@@ -3,7 +3,7 @@ import i18n from "./i18n"; // your i18n configuration file
 import en from "../public/locales/en-US/common.json"; //server side
 import cn from "../public/locales/zh-CN/common.json"; //server side
 
-let i18next = new RemixI18Next({
+const i18next = new RemixI18Next({
   detection: {
     supportedLanguages: i18n.supportedLngs,
     fallbackLanguage: i18n.fallbackLng,

@@ -309,7 +309,7 @@ const ingredients: Ingredient = {
   trunk_winter: {
     values: { meat: 1 },
   },
-  trunk_cooked: {
+  trunk: {
     values: { meat: 1 },
   },
   ancientfruit_nightvision: {
@@ -321,19 +321,19 @@ const ingredients: Ingredient = {
 export default ingredients;
 
 //STRINGS.NAMES.POMEGRANATE
-const c = () => {
-  for (const key in ingredients) {
-    console.log(`"${key}":""`);
-    if (ingredients[key].canCook) {
-      console.log(`"${key}_cooked":""`);
-    }
-    if (ingredients[key].canDry) {
-      console.log(`"${key}_dried":""`);
-    }
-  }
-};
+// const c = () => {
+//   for (const key in ingredients) {
+//     console.log(`"${key}":""`);
+//     if (ingredients[key].canCook) {
+//       console.log(`"${key}_cooked":""`);
+//     }
+//     if (ingredients[key].canDry) {
+//       console.log(`"${key}_dried":""`);
+//     }
+//   }
+// };
 export const searchIngredients = (query: string | null) => {
-  let ig: { [key: string]: string } = {};
+  const ig: { [key: string]: string } = {};
   for (const key in ingredients) {
     if (query === "all" || query === null) {
       ig[key] = key;
@@ -355,3 +355,5 @@ export const searchIngredients = (query: string | null) => {
   }
   return ig;
 };
+
+console.log(searchIngredients("all"));

@@ -448,6 +448,7 @@ const foods: { [key: string]: Food } = {
   },
   wetgoop: {
     test: (tags) => {
+      tags;
       return true;
     },
     priority: -10,
@@ -1658,11 +1659,11 @@ const foods: { [key: string]: Food } = {
 };
 export default foods;
 
-const a = () => {
-  for (const key in foods) {
-    console.log(`"${key}":""`);
-  }
-};
+// const a = () => {
+//   for (const key in foods) {
+//     console.log(`"${key}":""`);
+//   }
+// };
 // a();
 
 export const getFoods = (pot: string, recipes: string[]) => {
@@ -1691,9 +1692,9 @@ export const getFoods = (pot: string, recipes: string[]) => {
   return prefood;
 };
 const phaseTags = (names: string[]) => {
-  let tags: { [key: string]: number } = {};
+  const tags: { [key: string]: number } = {};
   names.map((n) => {
-    let k = n.replace("_cooked", "").replace("_dried", "");
+    const k = n.replace("_cooked", "").replace("_dried", "");
     if (k !== "meat" && k !== "fish" && n !== "drumstick_cooked") {
       if (tags[k]) {
         tags[k] += 1;
@@ -1716,7 +1717,7 @@ export const searchFoods = (category: string) => {
   if (category == "all") {
     return Object.keys(foods);
   }
-  let foodName: string[] = [];
+  const foodName: string[] = [];
   Object.keys(foods).map((e) => {
     if (foods[e].foodtype == category) {
       foodName.push(e);
@@ -1724,3 +1725,5 @@ export const searchFoods = (category: string) => {
   });
   return foodName;
 };
+
+getFoods("cookpot", [])

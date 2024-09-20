@@ -28,7 +28,7 @@ export default function Cooking() {
   const [active, setActive] = useState<string>("all");
   const [isFull, setIsFull] = useState<boolean>(false);
   const navigate = useNavigate();
-  let { t } = useTranslation();
+  const { t } = useTranslation();
   const location = useLocation();
 
   const handleClick = (category: string) => {
@@ -51,12 +51,12 @@ export default function Cooking() {
   useEffect(() => {
     navigate("?lang=" + l + "&pot=" + pot + "&recipes=" + recipes.concat());
     setIngredients(searchIngredients("all"));
-  }, []);
+  }, [l, navigate, pot, recipes]);
   // f
   useEffect(() => {
     navigate("?lang=" + l + "&pot=" + pot + "&recipes=" + recipes.concat());
     setFoods(getFoods(pot, recipes));
-  }, [pot, recipes]);
+  }, [l, navigate, pot, recipes]);
   return (
     <div className="w-full">
       <div className="flex flex-col md:flex-row">
