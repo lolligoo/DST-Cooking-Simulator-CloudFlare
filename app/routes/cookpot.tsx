@@ -79,7 +79,7 @@ export default function Cooking() {
                   className="w-16 h-16 mr-[19px] hover:brightness-75 brightness-100 active:brightness-100"
                   alt={r}
                   onClick={() => removeIngredient(index)}
-                />
+                  />
               ))}
           </div>
         </div>
@@ -110,7 +110,7 @@ export default function Cooking() {
         </div>
       </div>
       <div className="flex">
-        <div className="flex overflow-y-auto max-h-[54vh] sm:max-h-none w-fit mt-4">
+        <div className="flex overflow-y-auto max-h-[60vh] w-fit mt-4">
           <span className="flex justify-start flex-col h-fit">
             {[
               "all",
@@ -141,7 +141,7 @@ export default function Cooking() {
             ))}
           </span>
         </div>
-        <div className="flex mt-4 flex-wrap overflow-auto max-h-[54vh] sm:max-h-130 w-4/6 content-start ml-2">
+        <div className="flex mt-4 flex-wrap overflow-auto max-h-[60vh] w-4/6 content-start ml-2">
           {ingredients &&
             Object.keys(ingredients).map((key, i) => (
               <span
