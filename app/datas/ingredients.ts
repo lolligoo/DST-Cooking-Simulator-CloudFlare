@@ -355,5 +355,3 @@ export const searchIngredients = (query: string | null) => {
   }
   return ig;
 };
-
-console.log(searchIngredients("all"));

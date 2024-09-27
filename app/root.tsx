@@ -17,15 +17,15 @@ import {
   LoaderFunctionArgs,
   MetaFunction,
   LinksFunction,
+  json,
 } from "@remix-run/cloudflare";
-import { json } from "@remix-run/cloudflare";
 import { useState } from "react";
 
 export async function loader({ request }: LoaderFunctionArgs) {
-  let locale = await i18next.getLocale(request);
+  const locale = await i18next.getLocale(request);
   return json({ locale });
 }
-export let handle = {
+export const handle = {
   // In the handle export, we can add a i18n key with namespaces our route
   // will need to load. This key can be a single string or an array of strings.
   // TIP: In most cases, you should set this to your defaultNS from your i18n config
@@ -34,7 +34,7 @@ export let handle = {
 };
 
 export const meta: MetaFunction = () => {
-  let { t } = useTranslation();
+  const { t } = useTranslation();
   return [
     { title: t("ui.title") },
     { name: "description", content: "Welcome to DST Cooking Simulator" },
@@ -52,8 +52,8 @@ export const links: LinksFunction = () => {
 
 export function Layout({ children }: { children: React.ReactNode }) {
   // Get the locale from the loader
-  let { locale } = useLoaderData<typeof loader>();
-  let { i18n } = useTranslation();
+  const { locale } = useLoaderData<typeof loader>();
+  const { i18n } = useTranslation();
   // This hook will change the i18n instance language to the current locale
   // detected by the loader, this way, when we do something to change the
   // language, this locale will change and i18next will load the correct
@@ -78,9 +78,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   const navigate = useNavigate();
-  let { locale } = useLoaderData<typeof loader>();
+  const { locale } = useLoaderData<typeof loader>();
   const [show, setShow] = useState<boolean>(false);
-  let { t } = useTranslation();
+  const { t } = useTranslation();
   const location = useLocation();
   return (
     <div className="font-hwmct p-4 flex flex-col items-center w-full xl:w-3/5 fixed">

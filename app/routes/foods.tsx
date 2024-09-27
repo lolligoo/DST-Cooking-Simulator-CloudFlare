@@ -42,7 +42,7 @@ export default function Foods() {
           </p>
         ))}
       </div>
-      <div className="flex ml-5 flex-wrap content-start overflow-auto max-h-130">
+      <div className="flex ml-5 flex-wrap content-start overflow-auto max-h-[80vh]">
         {foodNames &&
           foodNames.map((key) => (
             <span

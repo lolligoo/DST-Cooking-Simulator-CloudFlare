@@ -1725,5 +1725,3 @@ export const searchFoods = (category: string) => {
   });
   return foodName;
 };
-
-getFoods("cookpot", [])
