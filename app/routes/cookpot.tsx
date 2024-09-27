@@ -47,11 +47,6 @@ export default function Cooking() {
     setIsFull(false);
     setRecipes(recipes.filter((e, i) => i !== index));
   };
-  // i
-  useEffect(() => {
-    navigate("?lang=" + l + "&pot=" + pot + "&recipes=" + recipes.concat());
-    setIngredients(searchIngredients("all"));
-  }, [l, navigate, pot, recipes]);
   // f
   useEffect(() => {
     navigate("?lang=" + l + "&pot=" + pot + "&recipes=" + recipes.concat());
