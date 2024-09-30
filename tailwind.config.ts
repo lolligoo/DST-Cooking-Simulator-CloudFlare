@@ -32,7 +32,7 @@ export default {
         foodtype: "url('/images/ui/foodtype.png')",
         button: "url('/images/ui/button_large.png')",
         book: "url('/images/ui/tab_book.png')",
-        full: "url('/images/ui/full-bg.jpg')",
+        full: "url('/images/ui/full-bg.webp')",
         banner: "url('/images/ui/banner.png')",
       },
     },
