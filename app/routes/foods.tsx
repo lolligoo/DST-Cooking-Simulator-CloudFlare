@@ -29,17 +29,20 @@ export default function Foods() {
           "elemental",
           "other",
         ].map((e) => (
-          <p
+          <button
             key={e}
             onClick={() => {
               handleClick(e);
             }}
-            className={`w-24 h-10 rounded-md bg-button bg-cover bg-no-repeat text-center content-center font-medium hover:brightness-75 brightness-100 ${
-              active == e && "saturate-200"
-            }`}
           >
-            {t(`ui.${e}`)}
-          </p>
+            <p
+              className={`w-24 h-10 rounded-md bg-button bg-cover bg-no-repeat text-center content-center font-medium hover:brightness-75 brightness-100 ${
+                active == e && "saturate-200"
+              }`}
+            >
+              {t(`ui.${e}`)}
+            </p>
+          </button>
         ))}
       </div>
       <div className="flex ml-5 flex-wrap content-start overflow-auto max-h-[80vh]">

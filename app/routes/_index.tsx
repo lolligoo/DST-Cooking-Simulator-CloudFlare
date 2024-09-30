@@ -2,7 +2,7 @@ import { NavLink, useLocation } from "@remix-run/react";
 import { useTranslation } from "react-i18next";
 
 export default function Index() {
-  let { t } = useTranslation();
+  const { t } = useTranslation();
   const location = useLocation();
   return (
     <div className="flex justify-center w-full flex-col items-center mt-10">

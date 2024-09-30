@@ -40,6 +40,7 @@ export default function Food() {
       <span className="flex w-56 h-56 bg-l bg-no-repeat bg-center items-center justify-center bg-cover mt-2">
         <img
           src={`/images/foods/cookbook_${foodname}.png`}
+          alt={foodname}
           className="w-48 h-48"
         />
       </span>

@@ -73,25 +73,28 @@ export default function Cooking() {
           <div className="flex top-0 left-0 absolute">
             {recipes &&
               recipes.map((r, index) => (
-                <img
-                  key={r + index}
-                  src={`/images/ingredients/${r}.png`}
-                  className="w-16 h-16 mr-[19px] hover:brightness-75 brightness-100 active:brightness-100"
-                  alt={r}
-                  onClick={() => removeIngredient(index)}
+                <button key={r + index} onClick={() => removeIngredient(index)}>
+                  <img
+                    src={`/images/ingredients/${r}.png`}
+                    className="w-16 h-16 mr-[19px] hover:brightness-75 brightness-100 active:brightness-100"
+                    alt={r}
                   />
+                </button>
               ))}
           </div>
         </div>
         <div className="flex mt-3 md:mt-0">
-          <img
-            alt={t(`ui.${pot}`)}
-            src={`/images/ui/${pot}.png`}
+          <button
             onClick={() =>
               pot == "cookpot" ? setPot("portablecookpot") : setPot("cookpot")
             }
-            className="w-17 h-17 mr-3 hover:brightness-75 brightness-100"
-          />
+          >
+            <img
+              alt={t(`ui.${pot}`)}
+              src={`/images/ui/${pot}.png`}
+              className="w-17 h-17 mr-3 hover:brightness-75 brightness-100"
+            />
+          </button>
           {foods &&
             foods.map((r, index) => (
               <div
@@ -109,8 +112,8 @@ export default function Cooking() {
             ))}
         </div>
       </div>
-      <div className="flex">
-        <div className="flex overflow-y-auto max-h-[60vh] w-fit mt-4">
+      <div className="flex flex-row">
+        <div className="flex overflow-y-auto max-h-[60vh] w-fit mt-4 flex-none">
           <span className="flex justify-start flex-col h-fit">
             {[
               "all",
@@ -129,31 +132,32 @@ export default function Cooking() {
               "dairy",
               "inedible",
             ].map((e) => (
-              <p
-                key={e}
-                className={`w-24 h-10 rounded-md bg-button bg-cover bg-no-repeat text-center content-center font-medium hover:brightness-75 brightness-100" ${
-                  active == e && "saturate-200"
-                }`}
-                onClick={() => handleClick(e)}
-              >
-                {t(`ui.${e}`)}
-              </p>
+              <button key={e} onClick={() => handleClick(e)}>
+                <p
+                  className={`w-24 h-10 rounded-md bg-button bg-cover bg-no-repeat text-center content-center font-medium hover:brightness-75 brightness-100" ${
+                    active == e && "saturate-200"
+                  }`}
+                >
+                  {t(`ui.${e}`)}
+                </p>
+              </button>
             ))}
           </span>
         </div>
-        <div className="flex mt-4 flex-wrap overflow-auto max-h-[60vh] w-4/6 content-start ml-2">
+        <div className="flex mt-4 flex-wrap overflow-auto max-h-[60vh] w-auto content-start ml-2">
           {ingredients &&
-            Object.keys(ingredients).map((key, i) => (
+            Object.keys(ingredients).map((key) => (
               <span
                 key={key}
                 className="flex w-17 h-17 items-center justify-center bg-slot bg-no-repeat bg-clip-border"
               >
-                <img
-                  src={`/images/ingredients/${key}.png`}
-                  className="flex w-16 h-16 mr-2 hover:brightness-75 brightness-100"
-                  alt={t("ingredients." + key)}
-                  onClick={() => addIngredient(key)}
-                />
+                <button onClick={() => addIngredient(key)}>
+                  <img
+                    src={`/images/ingredients/${key}.png`}
+                    className="flex w-16 h-16 mr-2 hover:brightness-75 brightness-100"
+                    alt={t("ingredients." + key)}
+                  />
+                </button>
               </span>
             ))}
         </div>

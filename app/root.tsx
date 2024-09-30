@@ -23,7 +23,9 @@ import { useState } from "react";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const locale = await i18next.getLocale(request);
-  return json({ locale });
+  const t = await i18next.getFixedT(request);
+  const title = t("ui.title");
+  return json({ locale, title });
 }
 export const handle = {
   // In the handle export, we can add a i18n key with namespaces our route
@@ -33,10 +35,9 @@ export const handle = {
   i18n: "common",
 };
 
-export const meta: MetaFunction = () => {
-  const { t } = useTranslation();
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
   return [
-    { title: t("ui.title") },
+    { title: data ? data.title : "" },
     { name: "description", content: "Welcome to DST Cooking Simulator" },
   ];
 };
@@ -122,32 +123,35 @@ export default function App() {
       >
         {show && (
           <span className="flex flex-col ">
-            <p
-              className="w-20 h-8 mb-2 bg-button bg-cover bg-no-repeat text-center content-center font-medium"
+            <button
               onClick={() => {
                 setShow(false);
                 navigate("?lang=en-US");
               }}
             >
-              English
-            </p>
-            <p
-              className="w-20 h-8 mb-2 bg-button bg-cover bg-no-repeat text-center content-center font-medium"
+              <p className="w-20 h-8 mb-2 bg-button bg-cover bg-no-repeat text-center content-center font-medium">
+                English
+              </p>
+            </button>
+            <button
               onClick={() => {
                 setShow(false);
                 navigate("?lang=zh-CN");
               }}
             >
-              简体中文
-            </p>
+              <p className="w-20 h-8 mb-2 bg-button bg-cover bg-no-repeat text-center content-center font-medium">
+                简体中文
+              </p>
+            </button>
           </span>
         )}
-        <p
+        <button
           onClick={() => {
             setShow(!show);
           }}
-          className="w-14 h-14 rounded-full bg-book text-center content-center bg-cover"
-        ></p>
+        >
+          <p className="w-14 h-14 rounded-full bg-book text-center content-center bg-cover"></p>
+        </button>
       </div>
       <div className="fixed bottom-1 text-sm">
         <NavLink to="https://github.com/lolligoo/DST-Cooking-Simulator">
